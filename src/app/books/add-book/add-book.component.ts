@@ -1,9 +1,9 @@
 import { BooksService } from './../../shared/books.service';
 import { book } from './../book/book.model';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import { Component, OnInit,Inject, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -18,36 +18,36 @@ export class AddBookComponent implements OnInit {
   @Output() onAddEvent = new EventEmitter<any>();
 
   constructor(
-  private dialogRef: MatDialogRef<AddBookComponent>,@Inject(MAT_DIALOG_DATA) public parentData: book,
-  private bookservice:BooksService,private formBuilder: FormBuilder)
-   {
+    private dialogRef: MatDialogRef<AddBookComponent>, @Inject(MAT_DIALOG_DATA) public parentData: book,
+    private bookservice: BooksService, private formBuilder: FormBuilder) {
     this.addForm = this.formBuilder.group({
       authorName: ['', Validators.required],
-      publishedDate: ['', Validators.required] ,
+      publishedDate: ['', Validators.required],
       bookTitle: ['', Validators.required],
-      bookDescription:   ['', Validators.required]
+      bookDescription: ['', Validators.required]
     });
-   }
+  }
 
 
-  ngOnInit() { 
+  ngOnInit() {
     this.addForm.value.id = this.newAssginedID;
   }
 
 
-  onSubmit(addForm){
-    if(this.bookservice.isBookExists(addForm.value,this.currentBooksList)){
+  onSubmit(addForm) {
+    if (this.bookservice.isBookExists(addForm.value, this.currentBooksList)) {
       this.nameTaken = true;
     }
 
-    else{
-      if(this.addForm.valid){
-      this.dialogRef.close(addForm.value);
+    else {
+      this.nameTaken = false;
+      if (this.addForm.valid) {
+        this.dialogRef.close(addForm.value);
       }
     }
   }
 
-  onCancel(){
+  onCancel() {
     this.dialogRef.close();
   }
 

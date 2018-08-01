@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-delete-book',
   templateUrl: './delete-book.component.html',
@@ -8,7 +8,7 @@ import { MatDialogRef} from '@angular/material';
 export class DeleteBookComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<DeleteBookComponent>) { }
-  onConfirm(){
+  onConfirm() {
     this.dialogRef.close(true);
   }
   ngOnInit() {
