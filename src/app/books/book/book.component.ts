@@ -34,22 +34,18 @@ constructor(private bookservice:BooksService,public dialog: MatDialog) { }
   }
 
 
-    OnClickEdit(book){
+    onClickEdit(book){
       this.dialogRef = this.dialog.open(EditBookComponent, {
       width: '600px',
       data: [book,this.BookList]
   });
 
     this.subscription = this.dialogRef.afterClosed().subscribe((bookObject) => { 
-    if(!bookObject){
-      return;
-  }
-
-    else{
+    if(bookObject){
     this.updateOnModify.emit(bookObject);
-   }}); 
+    }}); 
 
-  }
+}
 
   ngOnInit() {}
 

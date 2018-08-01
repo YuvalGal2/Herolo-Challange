@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 import { CaptializedTextPipe } from './books/pipes/captialized-text.pipe';
 import { AddBookComponent } from './books/add-book/add-book.component';
 import { DeleteBookComponent } from './books/delete-book/delete-book.component';
@@ -36,6 +37,7 @@ import { DeleteBookComponent } from './books/delete-book/delete-book.component';
     MatInputModule,
     MatDialogModule,
     FormsModule,
+    MatIconModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

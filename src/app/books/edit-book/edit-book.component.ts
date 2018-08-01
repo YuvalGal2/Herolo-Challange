@@ -12,6 +12,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class EditBookComponent implements OnInit {
   editForm: FormGroup;
+  isEdited:false;
   singleBook:book = this.parentData[0];
   booksList:book[] = this.parentData[1];
   nameInUsed:boolean = false;
@@ -31,7 +32,8 @@ export class EditBookComponent implements OnInit {
   ngOnInit() {}
   
   onSubmit(editForm){
-    if(this.bookservice.isBookExists(editForm.value,this.booksList)){
+    if(this.bookservice.isBookExists(editForm.value,this.booksList) &&
+     (!this.editForm.controls.bookTitle.pristine)){
       this.nameInUsed = true;
     }
     else{

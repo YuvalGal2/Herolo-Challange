@@ -31,7 +31,9 @@
     display: initial;
 }
 .mat-primary{
+
     margin:10px;
+    margin-top:5px;
     font-weight: 500;
     font-size: 2rem;
 }
@@ -40,4 +42,9 @@
 }
 .control{
     margin-top:50px;
+}
+@media(min-width:998px){
+    .main-title{
+        font-size:2rem;
+    }
 }
