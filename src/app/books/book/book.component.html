@@ -1,0 +1,9 @@
+<mat-card> 
+  <mat-card-title>  {{book.bookTitle | captializedText}} </mat-card-title> 
+  <mat-card-subtitle>by {{book.authorName}}</mat-card-subtitle>
+  <mat-card-content>Released in {{book.publishedDate}}, {{book.bookDescription}}</mat-card-content>
+  <mat-card-actions>
+  <button mat-raised-button  color="primary" class="book-control" (click)="OnClickEdit(book)">Edit Book</button>
+  <button mat-raised-button color="warn" (click)="onClickDelete(book)" class="book-control">Delete</button>
+  </mat-card-actions>
+</mat-card>
